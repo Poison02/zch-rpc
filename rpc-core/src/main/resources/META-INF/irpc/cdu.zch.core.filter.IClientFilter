@@ -1,0 +1,3 @@
+clientLogFilterImpl=cdu.zch.core.filter.client.ClientLogFilterImpl
+directInvokeFilterImpl=cdu.zch.core.filter.client.DirectInvokeFilterImpl
+groupFilterImpl=cdu.zch.core.filter.client.GroupFilterImpl

@@ -1,0 +1,2 @@
+jdk=cdu.zch.core.proxy.jdk.JDKProxyFactory
+javassist=cdu.zch.core.proxy.javassist.JavassistProxyFactory

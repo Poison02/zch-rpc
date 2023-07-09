@@ -1,0 +1,4 @@
+kryo=cdu.zch.core.serialize.kryo.KryoSerializeFactory
+jdk=cdu.zch.core.serialize.jdk.JdkSerializeFactory
+hessian=cdu.zch.core.serialize.hessian.HessianSerializeFactory
+fastJson=cdu.zch.core.serialize.fastjson.FastJsonSerializeFactory

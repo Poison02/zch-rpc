@@ -1,0 +1,2 @@
+rotate=cdu.zch.core.router.RotateRouterImpl
+random=cdu.zch.core.router.RandomRouterImpl
