@@ -10,13 +10,14 @@ import java.io.ByteArrayOutputStream;
 
 public class KryoSerializeFactory implements SerializeFactory {
 
-    private static final ThreadLocal<Kryo> kryos = new ThreadLocal<Kryo>() {
+    /*private static final ThreadLocal<Kryo> kryos = new ThreadLocal<Kryo>() {
         @Override
         protected Kryo initialValue() {
             Kryo kryo = new Kryo();
             return kryo;
         }
-    };
+    };*/
+    private static final ThreadLocal<Kryo> kryos = ThreadLocal.withInitial(Kryo::new);
 
     @Override
     public <T> byte[] serialize(T t) {

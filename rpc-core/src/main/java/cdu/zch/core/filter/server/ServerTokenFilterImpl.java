@@ -1,14 +1,14 @@
 package cdu.zch.core.filter.server;
 
-import com.ltyzzz.core.annotations.SPI;
-import com.ltyzzz.core.common.RpcInvocation;
-import com.ltyzzz.core.exception.IRpcException;
-import com.ltyzzz.core.filter.IServerFilter;
-import com.ltyzzz.core.server.ServiceWrapper;
-import com.ltyzzz.core.utils.CommonUtils;
+import cdu.zch.core.annotations.SPI;
+import cdu.zch.core.common.RpcInvocation;
+import cdu.zch.core.exception.IRpcException;
+import cdu.zch.core.filter.IServerFilter;
+import cdu.zch.core.server.ServiceWrapper;
+import cdu.zch.core.utils.CommonUtils;
 
-import static com.ltyzzz.core.cache.CommonClientCache.RESP_MAP;
-import static com.ltyzzz.core.cache.CommonServerCache.PROVIDER_SERVICE_WRAPPER_MAP;
+import static cdu.zch.core.cache.CommonClientCache.RESP_MAP;
+import static cdu.zch.core.cache.CommonServerCache.PROVIDER_SERVICE_WRAPPER_MAP;
 
 @SPI("before")
 public class ServerTokenFilterImpl implements IServerFilter {
@@ -19,8 +19,12 @@ public class ServerTokenFilterImpl implements IServerFilter {
         String token = String.valueOf(rpcInvocation.getAttachments().get("serviceToken"));
         ServiceWrapper serviceWrapper = PROVIDER_SERVICE_WRAPPER_MAP.get(rpcInvocation.getTargetServiceName());
         String matchToken = String.valueOf(serviceWrapper.getServiceToken());
-        if (CommonUtils.isEmpty(matchToken)) return;
-        if (!CommonUtils.isEmpty(token) && token.equals(matchToken)) return;
+        if (CommonUtils.isEmpty(matchToken)) {
+            return;
+        }
+        if (!CommonUtils.isEmpty(token) && token.equals(matchToken)) {
+            return;
+        }
         rpcInvocation.setRetry(0);
         rpcInvocation.setE(new RuntimeException("service token is illegal for service " + rpcInvocation.getTargetServiceName()));
         rpcInvocation.setResponse(null);

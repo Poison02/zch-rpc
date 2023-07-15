@@ -29,12 +29,16 @@ public class ExtensionLoader {
             String line;
             LinkedHashMap<String, Class> classMap = new LinkedHashMap<>();
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.startsWith("#")) continue;
+                // 配置中有 # 则忽略该类无需进行加载
+                if (line.startsWith("#")) {
+                    continue;
+                }
                 String[] lineArr = line.split("=");
                 String implClassName = lineArr[0];
                 String interfaceName = lineArr[1];
                 classMap.put(implClassName, Class.forName(interfaceName));
             }
+            // 只触发class文件加载
             if (EXTENSION_LOADER_CLASS_CACHE.containsKey(clazz.getName())) {
                 EXTENSION_LOADER_CLASS_CACHE.get(clazz.getName()).putAll(classMap);
             } else {

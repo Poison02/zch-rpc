@@ -10,7 +10,10 @@ public class ServerConfig {
 
     private String applicationName;
 
-    private String serverSerialize; // 服務端序列化配置
+    /**
+     * 服务端序列化配置，example：hessian2，kyro，fastjson，jdk
+     */
+    private String serverSerialize;
 
     private Integer serverBizThreadNums;
 

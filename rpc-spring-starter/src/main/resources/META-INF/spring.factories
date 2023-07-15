@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cdu.zch.spring.config.IRpcServerAutoConfiguration,\
+cdu.zch.spring.config.IRpcClientAutoConfiguration

@@ -15,7 +15,9 @@ public class DirectInvokeFilterImpl implements IClientFilter {
     @Override
     public void doFilter(List<ChannelFutureWrapper> src, RpcInvocation rpcInvocation) {
         String url = (String) rpcInvocation.getAttachments().get("url");
-        if (CommonUtils.isEmpty(url)) return;
+        if (CommonUtils.isEmpty(url)) {
+            return;
+        }
         Iterator<ChannelFutureWrapper> iterator = src.iterator();
         while (iterator.hasNext()) {
             ChannelFutureWrapper next = iterator.next();

@@ -9,10 +9,19 @@ public class RpcProtocol implements Serializable {
 
     private static final long serialVersionUID = 5454104442521781820L;
 
+    /**
+     * 魔数
+     */
     private short magicNumber = MAGIC_NUMBER;
 
+    /**
+     * 数据包长度
+     */
     private int contentLength;
 
+    /**
+     * 数据包
+     */
     private byte[] content;
 
     public RpcProtocol(byte[] content) {

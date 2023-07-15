@@ -13,6 +13,7 @@
         <module>rpc-interface</module>
         <module>rpc-provider</module>
         <module>rpc-consumer</module>
+        <module>rpc-spring-starter</module>
     </modules>
 
     <properties>

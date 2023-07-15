@@ -10,7 +10,10 @@ public class ClientConfig {
 
     private String routerStrategy; // 负载均衡策略
 
-    private String clientSerialize; // 客戶端序列化策略
+    /**
+     * 客户端序列化配置，example：hessian2，kyro，fastjson，jdk
+     */
+    private String clientSerialize;
 
     private String registerType; // 注册中心类型
 
